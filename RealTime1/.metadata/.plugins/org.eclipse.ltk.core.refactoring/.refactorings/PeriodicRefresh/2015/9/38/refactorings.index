@@ -1,0 +1,8 @@
+1442175827287	Delete elements
+1442176342956	Rename type 'JobStatusService'
+1442176795580	Rename type 'TaskRepository'
+1442176966355	Extract method 'poolContainsRunningTasks'
+1442177314673	Extract method 'isRunning'
+1442180235482	Delete element
+1442181679920	Rename field 'taskRepository'
+1442199034358	Rename type 'TasksController'

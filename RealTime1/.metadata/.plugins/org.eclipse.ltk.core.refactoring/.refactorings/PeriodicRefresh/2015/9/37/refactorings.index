@@ -1,0 +1,10 @@
+1442064410713	Rename type 'GameScore'
+1442066771219	Extract method 'pickRandomTeam'
+1442066858545	Extract method 'isSameTeam'
+1442066987154	Extract method 'notSameConference'
+1442067015615	Extract method 'teamsCanPlayAgainstEachOther'
+1442067434694	Delete elements
+1442067449068	Delete element
+1442067697651	Extract Class...
+1442067886383	Rename field 'data'
+1442068126891	Delete element

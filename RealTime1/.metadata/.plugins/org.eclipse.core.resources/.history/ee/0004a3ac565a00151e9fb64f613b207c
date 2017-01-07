@@ -1,0 +1,15 @@
+package com.javacodegeeks.examples.realtimeapp.part1.services;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/api/task")
+public class TaskService {
+	
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	public String getTaskById() {
+		return null;
+	}
+}

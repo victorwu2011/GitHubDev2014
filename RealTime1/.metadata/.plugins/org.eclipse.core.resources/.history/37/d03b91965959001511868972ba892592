@@ -1,0 +1,59 @@
+package com.javacodegeeks.examples.realtimeapp.part1.domain;
+
+public class GameInformation {
+	private String localTeam;
+	private int localTeamScore;
+	private String visitorTeam;
+	private int visitorTeamScore;
+	private int minutesLeft;
+	private int secondsLeft;
+	
+	public int getLocalTeamScore() {
+		return localTeamScore;
+	}
+	
+	public void setLocalTeamScore(int localTeamScore) {
+		this.localTeamScore = localTeamScore;
+	}
+	
+	public int getVisitorTeamScore() {
+		return visitorTeamScore;
+	}
+	
+	public void setVisitorTeamScore(int visitorTeamScore) {
+		this.visitorTeamScore = visitorTeamScore;
+	}
+	
+	public int getMinutesLeft() {
+		return minutesLeft;
+	}
+	
+	public void setMinutesLeft(int minutesLeft) {
+		this.minutesLeft = minutesLeft;
+	}
+	
+	public int getSecondsLeft() {
+		return secondsLeft;
+	}
+	
+	public void setSecondsLeft(int secondsLeft) {
+		this.secondsLeft = secondsLeft;
+	}
+
+	public String getLocalTeam() {
+		return localTeam;
+	}
+
+	public void setLocalTeam(String localTeam) {
+		this.localTeam = localTeam;
+	}
+
+	public String getVisitorTeam() {
+		return visitorTeam;
+	}
+
+	public void setVisitorTeam(String visitorTeam) {
+		this.visitorTeam = visitorTeam;
+	}
+
+}

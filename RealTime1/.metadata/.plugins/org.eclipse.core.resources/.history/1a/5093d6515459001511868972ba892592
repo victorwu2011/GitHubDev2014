@@ -1,0 +1,27 @@
+package com.javacodegeeks.examples.realtimeapp.part1.domain;
+
+import java.util.List;
+
+public class GameEngine extends Thread {
+	private GameInformation info;
+	
+	public GameEngine() {
+		this.info = new GameInformation();
+	}
+	
+	public GameInformation getInfo() {
+		return info;
+	}
+
+	public void setInfo(GameInformation info) {
+		this.info = info;
+	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+}

@@ -1,0 +1,56 @@
+package com.javacodegeeks.examples.realtimeapp.part1.domain;
+
+import java.util.Random;
+
+public class GameEngine extends Thread {
+	private TeamRepository teamRepo;
+	private GameInformation info;
+	
+	public GameEngine() {
+		this.teamRepo = new TeamRepository();
+		this.info = new GameInformation();
+		this.initializeGameInformation();
+	}
+	
+	private void initializeGameInformation() {
+		Team localTeam = pickRandomTeam();
+		Team visitorTeam = null;
+		
+		do {
+			visitorTeam = pickRandomTeam();
+		} while (teamsCanPlayAgainstEachOther(localTeam, visitorTeam));
+		
+		this.info.setLocalTeam(localTeam);
+		this.info.setVisitorTeam(visitorTeam);
+	}
+
+	private boolean teamsCanPlayAgainstEachOther(Team localTeam, Team visitorTeam) {
+		return isSameTeam(localTeam, visitorTeam) || notSameConference(localTeam, visitorTeam);
+	}
+
+	private boolean notSameConference(Team localTeam, Team visitorTeam) {
+		return !localTeam.getConference().equals(visitorTeam.getConference());
+	}
+
+	private boolean isSameTeam(Team localTeam, Team visitorTeam) {
+		return localTeam.getTeamID().equals(visitorTeam.getTeamID());
+	}
+
+	private Team pickRandomTeam() {
+		return this.teamRepo.getTeams().get(new Random().nextInt(teamRepo.getTeams().size()));
+	}
+
+	public GameInformation getInfo() {
+		return info;
+	}
+
+	public void setInfo(GameInformation info) {
+		this.info = info;
+	}
+
+	@Override
+	public void run() {
+	}
+	
+	
+}

@@ -1,0 +1,6 @@
+package com.javacodegeeks.examples.realtimeapp.part1.services;
+
+@RestController
+public class JobStatusService {
+
+}

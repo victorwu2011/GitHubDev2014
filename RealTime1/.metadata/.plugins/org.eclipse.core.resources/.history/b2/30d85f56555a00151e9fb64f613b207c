@@ -1,0 +1,41 @@
+package com.javacodegeeks.examples.realtimeapp.part1.domain;
+
+public class GameEngine extends Thread {
+	private GameInformation info;
+	
+	public GameEngine() {
+		this.info = new GameInformation();
+		this.initializeGameInformation();
+	}
+	
+	private void initializeGameInformation() {
+		
+		this.info.setLocalTeam("Quebec Nordiques");
+		this.info.setVisitorTeam("Montreal Canadians");
+		
+		this.info.getTime().setMinutesLeft(20);
+		this.info.getTime().setSecondsLeft(0);
+	}
+
+	public GameInformation getInfo() {
+		return info;
+	}
+
+	public void setInfo(GameInformation info) {
+		this.info = info;
+	}
+
+	@Override
+	public void run() {
+		try {
+			while (!this.info.isGameFinished()) {
+				this.info.getTime().gameTick();
+					Thread.sleep(1000);
+			}
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+}

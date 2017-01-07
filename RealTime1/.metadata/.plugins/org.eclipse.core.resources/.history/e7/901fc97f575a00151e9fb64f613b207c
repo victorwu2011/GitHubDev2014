@@ -1,0 +1,15 @@
+package com.javacodegeeks.examples.realtimeapp.part1.services;
+
+import java.util.LinkedList;
+
+import org.springframework.stereotype.Repository;
+
+import com.javacodegeeks.examples.realtimeapp.part1.domain.Task;
+
+@Repository
+public class TaskRepository {
+	private List<Task> pool = new LinkedList<>();
+	public void makeNewTask() {
+		
+	}
+}

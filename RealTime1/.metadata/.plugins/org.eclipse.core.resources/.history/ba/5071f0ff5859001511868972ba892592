@@ -1,0 +1,41 @@
+package com.javacodegeeks.examples.realtimeapp.part1.domain;
+
+public class Team {
+	private String name;
+	private String teamID;
+	private String conference;
+	private String division;
+	
+	public String getName() {
+		return name;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public String getTeamID() {
+		return teamID;
+	}
+	
+	public void setTeamID(String teamID) {
+		this.teamID = teamID;
+	}
+	
+	public String getConference() {
+		return conference;
+	}
+	
+	public void setConference(String conference) {
+		this.conference = conference;
+	}
+	
+	public String getDivision() {
+		return division;
+	}
+	
+	public void setDivision(String division) {
+		this.division = division;
+	}
+	
+}

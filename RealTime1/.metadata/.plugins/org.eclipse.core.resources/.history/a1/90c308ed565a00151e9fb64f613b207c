@@ -1,0 +1,14 @@
+package com.javacodegeeks.examples.realtimeapp.part1.domain;
+
+public class Task {
+	private TaskStatus status = TaskStatus.IDLE;
+	private long duration;
+
+	public TaskStatus getStatus() {
+		return status;
+	}
+
+	public void setStatus(TaskStatus status) {
+		this.status = status;
+	}
+}
