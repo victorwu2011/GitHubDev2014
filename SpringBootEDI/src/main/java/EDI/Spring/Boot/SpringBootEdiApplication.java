@@ -8,6 +8,5 @@ public class SpringBootEdiApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootEdiApplication.class, args);
-                System.out.println("Hello");
 	}
 }
