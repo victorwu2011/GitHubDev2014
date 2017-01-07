@@ -1,0 +1,12 @@
+package com.javacodegeeks.examples.realtimeapp.part1.services;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/api/taskStatus")
+public class TaskService {
+	public String getTaskStatus() {
+		return null;
+	}
+}

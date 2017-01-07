@@ -1,0 +1,34 @@
+package com.javacodegeeks.examples.realtimeapp.part1.domain;
+
+public class GameTime {
+	public int minutesLeft;
+	public int secondsLeft;
+	
+	public int getMinutesLeft() {
+		return minutesLeft;
+	}
+	
+	public void setMinutesLeft(int minutesLeft) {
+		this.minutesLeft = minutesLeft;
+	}
+	
+	public int getSecondsLeft() {
+		return secondsLeft;
+	}
+	
+	public void setSecondsLeft(int secondsLeft) {
+		this.secondsLeft = secondsLeft;
+	}
+
+	public void gameTick() {
+		if (this.secondsLeft > 0) {
+			this.secondsLeft --;
+		} else {
+			if (this.minutesLeft > 0) {
+				this.minutesLeft --;
+				this.secondsLeft = 59;
+			}
+		}
+	}
+	
+}

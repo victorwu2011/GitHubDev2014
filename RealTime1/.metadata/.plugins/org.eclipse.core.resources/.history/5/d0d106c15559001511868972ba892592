@@ -1,0 +1,15 @@
+package com.javacodegeeks.examples.realtimeapp.part1.domain;
+
+import java.util.List;
+
+public class TeamRepository {
+	private List<Team> teams;
+
+	public TeamRepository() {
+		this.teams = this.fetchTeams();
+	}
+
+	public List<Team> fetchTeams() {
+		return null;
+	}
+}

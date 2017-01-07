@@ -1,0 +1,44 @@
+package com.javacodegeeks.examples.realtimeapp.part1.domain;
+
+import java.util.List;
+
+import com.sun.jersey.api.client.Client;
+import com.sun.jersey.api.client.ClientResponse;
+import com.sun.jersey.api.client.WebResource;
+import com.sun.jersey.api.client.config.ClientConfig;
+import com.sun.jersey.api.client.config.DefaultClientConfig;
+import com.sun.jersey.api.json.JSONConfiguration;
+
+public class TeamRepository {
+	private static final String NHL_TEAMS_API = "http://www.nicetimeonice.com/api/teams";
+	
+	private List<Team> teams;
+
+	public TeamRepository() {
+		this.teams = this.fetchTeams();
+	}
+
+	public List<Team> fetchTeams() {
+		ClientConfig clientConfig = new DefaultClientConfig();
+		clientConfig.getFeatures().put(
+				JSONConfiguration.FEATURE_POJO_MAPPING, Boolean.TRUE);
+		
+		Client client = Client.create(clientConfig);
+		WebResource webResource = client.resource(NHL_TEAMS_API);
+		ClientResponse response = webResource.accept("application/json").get(ClientResponse.class);
+		
+		if (response.getStatus() != 200) {
+			throw new RuntimeException("Could not get teams");
+		}
+		
+		return response.getEntity(List.class);
+	}
+	
+	public Team getTeam(String teamID) {
+		Team teamFound = this.teams.stream()
+			.filter(curTeam -> curTeam.getTeamID().equals(teamID))
+			.findFirst().get();
+		
+		return teamFound;
+	}
+}

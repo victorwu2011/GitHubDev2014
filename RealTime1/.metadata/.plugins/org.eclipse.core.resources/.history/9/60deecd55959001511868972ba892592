@@ -1,0 +1,9 @@
+package com.javacodegeeks.examples.realtimeapp.part1.domain;
+
+public class GameTime {
+	public int minutesLeft;
+	public int secondsLeft;
+
+	public GameTime() {
+	}
+}

@@ -1,0 +1,53 @@
+package com.javacodegeeks.examples.realtimeapp.part1.services;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Random;
+
+import javax.annotation.PostConstruct;
+
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
+import com.javacodegeeks.examples.realtimeapp.part1.domain.Task;
+import com.javacodegeeks.examples.realtimeapp.part1.domain.TaskStatus;
+
+@Component
+@Scope("singleton")
+public class TaskExecutor {
+	private List<Task> pool = new LinkedList<>();
+	
+	@PostConstruct
+	public void initialize() {
+		Runnable taskPoolConsumer = () -> {
+			while (true) {
+				try {
+					this.pool.stream()
+							.filter(task -> task.isRunning())
+							.forEach(task -> task.decrementDuration());
+				
+					Thread.sleep(1000);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		};
+		
+		new Thread(taskPoolConsumer).start();
+	}
+	
+	public void makeNewTask() {
+		Task newTask = new Task();
+		long randTaskDuration = new Random().nextInt(30);
+		
+		newTask.setDuration(randTaskDuration);
+	}
+	
+	public void startAllTasks() throws InterruptedException {
+		this.pool.stream().forEach(task -> task.start());	
+	}
+
+	private boolean poolContainsRunningTasks() {
+		return this.pool.stream().anyMatch(task -> task.getStatus().equals(TaskStatus.RUNNING));
+	}
+}

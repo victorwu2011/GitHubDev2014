@@ -1,0 +1,13 @@
+package com.javacodegeeks.examples.realtimeapp.part1.config;
+
+import org.springframework.web.WebApplicationInitializer;
+
+public class AppInit implements WebApplicationInitializer {
+
+	@Override
+	public void onStartup(ServletContext arg0) throws ServletException {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

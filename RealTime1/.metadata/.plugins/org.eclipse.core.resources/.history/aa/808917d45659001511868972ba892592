@@ -1,0 +1,26 @@
+package com.javacodegeeks.examples.realtimeapp.part1.domain;
+
+public class GameEngine extends Thread {
+	private TeamRepository teamRepo;
+	private GameInformation info;
+	
+	public GameEngine() {
+		this.teamRepo = new TeamRepository();
+		this.info = new GameInformation();
+	}
+	
+	public GameInformation getInfo() {
+		return info;
+	}
+
+	public void setInfo(GameInformation info) {
+		this.info = info;
+	}
+
+	@Override
+	public void run() {
+		System.out.println(this.teamRepo.getTeam("ANA").getName());
+	}
+	
+	
+}

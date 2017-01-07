@@ -1,0 +1,5 @@
+package com.javacodegeeks.examples.realtimeapp.part1.config;
+
+public class WebMvcConfiguration {
+
+}
